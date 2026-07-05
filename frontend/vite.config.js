@@ -8,12 +8,16 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:8000',
+        target:'https://roadsenseai.onrender.com',
         changeOrigin: true,
       },
       '/uploads': {
         target: 'http://127.0.0.1:8000',
+        target:'https://roadsenseai.onrender.com',
         changeOrigin: true,
       }
     }
   }
 });
+
+// Deployed backend URL: https://roadsenseai.onrender.com

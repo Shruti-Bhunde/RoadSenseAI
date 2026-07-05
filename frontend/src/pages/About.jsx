@@ -34,6 +34,9 @@ export default function About() {
         <p className="text-brand-muted text-sm leading-relaxed max-w-xl mx-auto">
           AI-Powered Community Traffic Decision Intelligence Platform designed for swift, unstructured reporting of road hazards.
         </p>
+        <p className="text-brand-muted text-sm leading-relaxed max-w-xl mx-auto mt-3">
+          Deployed backend: <a href="https://roadsenseai.onrender.com" className="text-brand-primary hover:underline">https://roadsenseai.onrender.com</a>
+        </p>
       </div>
 
       {/* Tech Stack Grid */}
