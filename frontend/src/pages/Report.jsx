@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../services/api';
 import { FileText, Image as ImageIcon, Video, Mic, StopCircle, Upload, Check, AlertCircle, X } from 'lucide-react';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import Loader from '../components/Loader';
@@ -204,7 +204,7 @@ export default function Report() {
     }
 
     try {
-      await axios.post('/api/report', formData, {
+      await api.post('/api/report', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

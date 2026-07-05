@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { AlertCircle, Search, SlidersHorizontal } from 'lucide-react';
 import IncidentCard from '../components/IncidentCard';
 import Loader from '../components/Loader';
@@ -17,7 +17,7 @@ export default function Feed() {
   const fetchIncidents = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('/api/incidents');
+      const res = await api.get('/api/incidents');
       setIncidents(res.data);
       setError('');
     } catch (err) {
@@ -35,7 +35,7 @@ export default function Feed() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this incident report?")) {
       try {
-        await axios.delete(`/api/incident/${id}`);
+        await api.delete(`/api/incident/${id}`);
         // Filter out deleted incident local state
         setIncidents(incidents.filter(inc => inc.id !== id));
       } catch (err) {

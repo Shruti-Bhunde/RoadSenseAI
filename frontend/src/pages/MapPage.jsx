@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { AlertCircle, MapPin, Activity, ShieldAlert } from 'lucide-react';
 import MapComponent from '../components/MapComponent';
 import Loader from '../components/Loader';
@@ -12,7 +12,7 @@ export default function MapPage() {
   const fetchIncidents = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('/api/incidents');
+      const res = await api.get('/api/incidents');
       // Filter out incidents without lat/lng coordinates
       const mapped = res.data.filter((inc) => inc.latitude != null && inc.longitude != null);
       setIncidents(mapped);
