@@ -11,3 +11,4 @@ python-multipart
 aiofiles
 pydantic
 typing-extensions
+pydantic_settings
