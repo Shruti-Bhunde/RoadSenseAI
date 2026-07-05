@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+pymysql
+python-dotenv
+google-genai
+scikit-learn
+joblib
+numpy
+pandas
+python-multipart
+aiofiles
+pydantic
+typing-extensions
