@@ -3,6 +3,16 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { AlertTriangle, Clock, ShieldAlert } from 'lucide-react';
 
+const baseApiUrl = import.meta.env.VITE_API_BASE_URL || '';
+
+const normalizeMediaUrl = (url) => {
+  if (!url) return url;
+  if (url.startsWith('/uploads') && baseApiUrl) {
+    return `${baseApiUrl}${url}`;
+  }
+  return url;
+};
+
 const parseLocalDateTime = (value) => {
   if (!value) return null;
   const normalized = value.trim().replace(' ', 'T');
@@ -137,7 +147,7 @@ export default function MapComponent({ incidents }) {
                   {incident.media_url && (
                     <div className="mb-2 rounded overflow-hidden border border-brand-border bg-black/40">
                       {incident.media_type === 'image' ? (
-                        <img src={incident.media_url} alt="Incident" className="w-full h-20 object-cover" />
+                        <img src={normalizeMediaUrl(incident.media_url)} alt="Incident" className="w-full h-20 object-cover" />
                       ) : incident.media_type === 'video' ? (
                         <div className="text-[10px] text-center text-brand-muted p-1">📹 Video Attached</div>
                       ) : (

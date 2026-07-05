@@ -1,6 +1,16 @@
 import React from 'react';
 import { AlertCircle, Calendar, MapPin, Shield, Eye, Trash2, FileText, Image as ImageIcon, Video, Mic } from 'lucide-react';
 
+const baseApiUrl = import.meta.env.VITE_API_BASE_URL || '';
+
+const normalizeMediaUrl = (url) => {
+  if (!url) return url;
+  if (url.startsWith('/uploads') && baseApiUrl) {
+    return `${baseApiUrl}${url}`;
+  }
+  return url;
+};
+
 const parseLocalDateTime = (value) => {
   if (!value) return null;
   const normalized = value.trim().replace(' ', 'T');
@@ -100,13 +110,13 @@ export default function IncidentCard({ incident, onDelete }) {
           <div className="mb-4 rounded-lg overflow-hidden border border-brand-border bg-black/40 flex items-center justify-center">
             {incident.media_type === 'image' ? (
               <img
-                src={incident.media_url}
+                src={normalizeMediaUrl(incident.media_url)}
                 alt={incident.incident_type}
                 className="w-full max-h-48 object-cover hover:scale-105 transition-transform duration-300"
               />
             ) : incident.media_type === 'video' ? (
               <video
-                src={incident.media_url}
+                src={normalizeMediaUrl(incident.media_url)}
                 controls
                 className="w-full max-h-48 object-contain"
               />
@@ -116,7 +126,7 @@ export default function IncidentCard({ incident, onDelete }) {
                   <Mic className="h-3 w-3 animate-pulse text-emerald-400" />
                   <span>Voice Report Recorded Clip</span>
                 </div>
-                <audio src={incident.media_url} controls className="w-full h-8" />
+                <audio src={normalizeMediaUrl(incident.media_url)} controls className="w-full h-8" />
               </div>
             ) : null}
           </div>
