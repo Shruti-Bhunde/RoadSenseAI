@@ -11,7 +11,7 @@ export default function Footer() {
         </div>
         <div className="flex items-center space-x-6">
           <a
-            href="https://github.com"
+            href="https://github.com/Shruti-Bhunde/RoadSenseAI.git"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-brand-text flex items-center space-x-1 transition-colors"
