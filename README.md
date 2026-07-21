@@ -8,10 +8,6 @@ RoadSense AI is an AI-powered community traffic intelligence platform that trans
 
 ## 🌐 Live Demo:https://road-sense-ai-iota.vercel.app/
 
-**Alternative 1:** https:road-sense-ai-git-main-shruti-bhundes-projects.vercel.app
-
-**Alternative 2:** road-sense-q7zdh6iwc-shruti-bhundes-projects.vercel.app
-
 ---
 
 ## 🎯 Problem Statement
@@ -39,7 +35,6 @@ RoadSense AI solves this by converting community-generated reports into structur
 
 - 🔔 Nearby Smart Notifications
 - 🚔 Traffic Police Integration
-- 📹 CCTV & Drone Integration
 - 🚑 Emergency Vehicle Route Optimization
 - 📈 Predictive Congestion Forecasting
 - ⭐ Community Trust & Reporter Reputation System
@@ -94,6 +89,3 @@ RoadSense AI solves this by converting community-generated reports into structur
 
 ---
 
-# 📄 License
-
-This project is licensed under the **MIT License**.
